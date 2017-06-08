@@ -94,8 +94,8 @@ def main(args):
     winner = None
 
     #Build the two teams
-    team_a = Team(2, 2, confidence_mass, "TeamA", "")
-    team_b = Team(2, 2, confidence_mass, "TeamB", "")
+    team_a = Team(2, 2, confidence_mass, "TeamA", args.l)
+    team_b = Team(2, 2, confidence_mass, "TeamB", args.r)
 
     #Make some prior simulations
     for i in range(prior_games):
