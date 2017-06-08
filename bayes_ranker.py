@@ -5,7 +5,7 @@ Each team is associated with a parameter following a Beta(a, b) distribution.
 This parameter represents the team's likelihood to win against its given opponent.
 At first, a given number (prior_games) of games are observed and the parameter's distribution of
 each team is updated according to the results.
-Then, the team are ranked according to the Highest Density Interval of their distribution.
+Then, the teams are ranked according to the Highest Density Interval of their distribution.
 Additional games are simulated until the teams can be statically ranked.
 
 Refer to: John K. Kruschke, Bayesian estimation supersedes the t test, Journal of Experimental Psychology: General, May, 2012
@@ -111,7 +111,7 @@ def main(args):
         elif team_a.up_bound < team_b.low_bound: #TeamA < TeamB
             winner = team_b
             ranked = True
-        elif games < max_game: #Too much uncertainty
+        elif games < max_game: #Too much uncertainty, observe one additional game
             score_team_a, score_team_b = generate_game(team_a.path, team_b.path)
             team_a.update(1, score_team_a)
             team_b.update(1, score_team_b)
