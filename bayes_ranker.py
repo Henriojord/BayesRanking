@@ -74,7 +74,7 @@ def generate_game(left_team, right_team):
 
     Return a binary value (1: win, 0: lose) for both left_team and right_team
     """
-    #TODO: Generate some random data
+    
     #TODO: Generate true games
     return 1, 0
 
