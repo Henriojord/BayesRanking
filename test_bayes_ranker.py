@@ -132,12 +132,7 @@ def main(args, theta):
             else:
                 winner = team_b
             ranked = True
-    # if winner != None:
-    #     print("Winner: %s"%(winner.name))
-    # else:
-    #     print("Teams have equivalent performance")
-    # print("Evaluated among %d prior games plus %d additional games"%(prior_games, games))
-    # print("%s won %d, %s won %d of %d games"%(team_a.name, team_a.a - 2, team_b.name, team_b.a - 2, (prior_games + games)))
+
     return [theta, team_a.a - 2, team_b.a - 2, games, winner.name]
 
 if __name__ == '__main__':
