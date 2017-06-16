@@ -4,3 +4,6 @@ lib/
 pip-selfcheck.json
 share/
 __pycache__/
+*.ods*
+*.csv
+*.png
