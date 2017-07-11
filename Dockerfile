@@ -22,3 +22,7 @@ ADD payload/rcssserver-15.3.0_dockercompiled.tar.gz /robocup/payload/
 RUN cd /robocup/payload/rcssserver-15.3.0/ && make install
 RUN echo "/usr/local/share" >> /etc/ld.so.conf && echo "/usr/local/lib" >> /etc/ld.so.conf && ldconfig
 RUN cd /robocup/ && rcssserver || true
+
+# Install LIBRCSC ------------------------------------------------------------------------------------------
+ADD payload/librcsc-4.1.0_dockercompiled.tar.gz /robocup/payload/
+RUN echo "/robocup/payload/librcsc-rctools/lib" >> /etc/ld.so.conf && ldconfig
