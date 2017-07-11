@@ -24,5 +24,8 @@ RUN echo "/usr/local/share" >> /etc/ld.so.conf && echo "/usr/local/lib" >> /etc/
 RUN cd /robocup/ && rcssserver || true
 
 # Install LIBRCSC ------------------------------------------------------------------------------------------
-ADD payload/librcsc-4.1.0_dockercompiled.tar.gz /robocup/payload/
+ADD payload/librcsc-rctools-with-svm.tar.gz /robocup/payload/
 RUN echo "/robocup/payload/librcsc-rctools/lib" >> /etc/ld.so.conf && ldconfig
+
+# Install Agent2D ------------------------------------------------------------------------------------------
+ADD payload/rctools-agent2d.tar.gz /robocup/payload/
