@@ -3,7 +3,7 @@ FROM debian:8.1
 MAINTAINER Henrio Jordan
 
 # Create directories ---------------------------------------------------------------------------------------
-RUN mkdir -p /robocup/payload/ && mkdir -p /robocup/shared/
+RUN mkdir -p /robocup/payload/ && mkdir -p /robocup/shared/ && mkdir -p /robocup/team
 
 # Install dependencies -------------------------------------------------------------------------------------
 RUN apt-get update && apt-get install -y wget build-essential dh-autoreconf \
@@ -28,4 +28,10 @@ ADD payload/librcsc-rctools-with-svm.tar.gz /robocup/payload/
 RUN echo "/robocup/payload/librcsc-rctools/lib" >> /etc/ld.so.conf && ldconfig
 
 # Install Agent2D ------------------------------------------------------------------------------------------
-ADD payload/rctools-agent2d.tar.gz /robocup/payload/
+ADD payload/rctools-agent2d.tar.gz /robocup/team/
+
+# Helios ---------------------------------------------------------------------------------------------------
+ADD payload/helios-jopen2010.tar.gz /robocup/team/
+
+# Install Python requirements ------------------------------------------------------------------------------
+RUN pip3 install numpy scipy
