@@ -111,8 +111,7 @@ def main(args):
     else:
         print("No winner.")
     print("%s won %d, %s won %d of %d games"%(team_a.name, team_a.a - 2, team_b.name, team_b.a - 2, (prior_games + games)))
-    # with open(os.path.join(args.logdir, 'bayes_results'), 'a') as f:
-    #     f.write('%s\t%d\t%d\t%d\t%d\t%d\n'%(winner.name, team_a.a - 2, team_b.a - 2, prior_games, games, add))
+
     return winner
 
 if __name__ == '__main__':
