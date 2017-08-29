@@ -1,0 +1,60 @@
+{
+  "teams":{
+    "Gliders2016": "bin_Gliders2016",
+    "ITAndroids": "bin_ITAndroids",
+    "FRA-UNIted": "bin_FRA-UNIted",
+    "HillStone": "bin_HillStone",
+    "Oxsy": "bin_Oxsy",
+    "MT2016": "bin_MT2016",
+    "LeftEagle": "bin_LeftEagle",
+    "CYRUS": "bin_CYRUS",
+    "Ziziphus": "bin_Ziziphus",
+    "HERMES": "bin_HERMES",
+    "HfutEngine2016": "bin_HfutEngine2016",
+    "Shiraz2016": "bin_Shiraz2016",
+    "Ri-one": "bin_Ri-one",
+    "HELIOS2016": "bin_HELIOS2016",
+    "FCP_GPR_2016": "bin_FCP_GPR_2016",
+    "CSU_Yunlu": "bin_CSU_Yunlu",
+    "FURY": "bin_FURY",
+    "MarliK2016": "bin_MarliK2016"
+  },
+  "seeds":{
+    "A":["Gliders2016", "ITAndroids", "FRA-UNIted", "HillStone"],
+    "B":["Oxsy", "MT2016", "LeftEagle", "CYRUS", "Ziziphus"],
+    "C":["HERMES", "HfutEngine2016", "Shiraz2016", "Ri-one"],
+    "D":["HELIOS2016", "FCP_GPR_2016", "CSU_Yunlu", "FURY", "MarliK2016"]
+  },
+  "preliminary-rounds":{
+    "E":["seeds_A_1", "seeds_B_4", "seeds_C_3", "seeds_D_2", "seeds_D_5"],
+    "F":["seeds_A_2", "seeds_B_1", "seeds_C_4", "seeds_D_3", "seeds_B_5"],
+    "G":["seeds_A_3", "seeds_B_2", "seeds_C_1", "seeds_D_4"],
+    "H":["seeds_A_4", "seeds_B_3", "seeds_C_2", "seeds_D_1"]
+  },
+  "pre-qualifying-rounds":{
+    "I":["preliminary-rounds_E_1", "preliminary-rounds_G_1", "preliminary-rounds_F_2", "preliminary-rounds_H_2", "preliminary-rounds_E_3", "preliminary-rounds_G_3", "preliminary-rounds_F_4", "preliminary-rounds_H_4"],
+    "J":["preliminary-rounds_F_1", "preliminary-rounds_H_1", "preliminary-rounds_E_2", "preliminary-rounds_G_2", "preliminary-rounds_F_3", "preliminary-rounds_H_3", "preliminary-rounds_E_4", "preliminary-rounds_G_4"],
+    "Z":["preliminary-rounds_F_5", "preliminary-rounds_E_5"]
+  },
+  "post-qualifying-rounds":{
+    "K":["pre-qualifying-rounds_I_1", "pre-qualifying-rounds_I_2", "pre-qualifying-rounds_I_3", "pre-qualifying-rounds_I_4", "pre-qualifying-rounds_J_1", "pre-qualifying-rounds_J_2", "pre-qualifying-rounds_J_3", "pre-qualifying-rounds_J_4"],
+    "L":["pre-qualifying-rounds_I_5", "pre-qualifying-rounds_I_6", "pre-qualifying-rounds_I_7", "pre-qualifying-rounds_I_8", "pre-qualifying-rounds_J_5", "pre-qualifying-rounds_J_6", "pre-qualifying-rounds_J_7", "pre-qualifying-rounds_J_8"]
+  },
+  "consolation-playoff":{
+    "1":["post-qualifying-rounds_L_7", "post-qualifying-rounds_L_8"],
+    "2":["post-qualifying-rounds_L_5", "post-qualifying-rounds_L_6"],
+    "3":["post-qualifying-rounds_L_3", "post-qualifying-rounds_L_4"],
+    "4":["post-qualifying-rounds_L_2", "post-qualifying-rounds_L_1"]
+  },
+  "semi-finals":{
+    "1":["post-qualifying-rounds_K_1", "post-qualifying-rounds_K_4"],
+    "2":["post-qualifying-rounds_K_2", "post-qualifying-rounds_K_3"]
+  },
+  "final-playoff":{
+    "1":["post-qualifying-rounds_K_7", "post-qualifying-rounds_K_8"],
+    "2":["post-qualifying-rounds_K_5", "post-qualifying-rounds_K_6"],
+    "3":["semi-finals_1_2", "semi-finals_2_2"],
+    "4":["semi-finals_1_1", "semi-finals_2_1"]
+  },
+  "points":[3, 1, 0]
+}
