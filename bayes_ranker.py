@@ -34,7 +34,7 @@ def generate_game(left_team, right_team, number_games, fast_mode, log_dir):
     team_a = 0
     team_b = 0
     for i in range(number_games):
-        rc.launch_simulation(left_team, right_team, 'logs', fast_mode)
+        rc.launch_simulation(left_team, right_team, log_dir, fast_mode)
         #Get the logs of the last (most recent) simulation
         logs = glob.glob(os.path.join(log_dir, '*.rcg'))
         latest_log_file = max(logs, key=os.path.getctime)
@@ -61,7 +61,8 @@ def main(args):
     assert (a > 0 and b > 0), "A Beta distribution is only defined for parameters greater than 0"
     games = 0
     ranked = False
-    winner = None
+    winner = team.Team(2, 2, confidence_mass, 'None', '')
+    add = 0
     hist_a = []
     hist_b = []
 
@@ -92,20 +93,27 @@ def main(args):
             team_b.update(args.pg, score_team_b)
             games += args.pg
         else: #Too much uncertainty, but simulations number limit reached
+            add = 1
             score_team_a, score_team_b = generate_game(team_a.path, team_b.path, 1, args.fastm, args.logdir)
             hist_a.append(score_team_a)
             hist_b.append(score_team_b)
             if score_team_a > score_team_b:
                 winner = team_a
-            elif score_team_a == score_team_b:
-                winner = None
-            else:
+            elif score_team_a < score_team_b:
                 winner = team_b
+            else:
+                winner = None
             ranked = True
-            games += 1
             print("Teams have equivalent performance. Ran a decisive game")
-    print("Evaluated among %d prior games plus %d additional games"%(prior_games, games))
+    print("Evaluated among %d games plus %d additional games"%(games, add))
+    if winner != None:
+        print("Winner: %s"%(winner.name))
+    else:
+        print("No winner.")
     print("%s won %d, %s won %d of %d games"%(team_a.name, team_a.a - 2, team_b.name, team_b.a - 2, (prior_games + games)))
+    # with open(os.path.join(args.logdir, 'bayes_results'), 'a') as f:
+    #     f.write('%s\t%d\t%d\t%d\t%d\t%d\n'%(winner.name, team_a.a - 2, team_b.a - 2, prior_games, games, add))
+    return winner
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Rank 2 RoboCup Simulation 2D teams according to Bayesian inference")
@@ -121,4 +129,5 @@ if __name__ == '__main__':
     parser.add_argument("--fastm", type=bool, default=True, help="Boolean controling simulation fast mode")
     parser.add_argument("--logdir", type=str, default="logs", help="Path to the directory for storing resulting log files")
     args = Dotdict(vars(parser.parse_args()))
-    main(args)
+    winner = main(args)
+    return winner
